@@ -3,6 +3,10 @@
 <head>
   <title>SparkFun Product Documentation</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<link rel="stylesheet" href="./main.67c3bdf0.min.css">
+      
+        
+	<link rel="stylesheet" href="./palette.ab4e12ef.min.css">
   <style>
   /* CSS styles for the page */
   body {
@@ -108,45 +112,40 @@ a.menu-link, a.menu-link:visited, a.menu-link:active{
 
   <h1>SparkFun's Latest Product Documentation</h1>
   
-  <table id="data-table">
-    <thead>
-      <tr>
-        <th>GitHub Repo</th>
-        <th style="width:25%">Documentation</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-  <!-- JavaScript code using jQuery -->
-  <script>
-    $(document).ready(function() {
-      // Retrieve JSON data from "jsonexdata.json" file
-      $.getJSON("gsg.json", function(data) {
-        var tableBody = $("#data-table tbody");
+	<div class="grid cards">
+		<ul id="tutorial-list">
+		</ul>
+	</div>
 
-        // Iterate over each person object in the JSON data
-        $.each(data, function(index, repo) {
-
-          var row = $("<tr></tr>"); // Create a new table row
-
-          // Repo
-          var $td_r = $("<td></td>").html('<a href="' + repo.url + '">' + repo.name + '</a>');
-          row.append($td_r);
-          
-          // Documentation
-          var $td = $("<td></td>").html('<a href="' + repo.homepage + '">' + repo.name.replace(/_/g, ' ') + '</a>');
-
-          row.append($td);         
-
-          // Description
-          row.append($("<td></td>").text(repo.description));
-
-          tableBody.append(row); // Add the row to the table body
-        });
-      });
-    });
-  </script>
 </body>
 </html>
+
+
+<!-- JavaScript code using jQuery -->
+<!-- Comment out code
+<script>
+	$(document).ready(function() {
+		// Retrieve JSON data from "jsonexdata.json" file
+		$.getJSON("gsg.json", function(data) {
+			var unorderedList = $("#tutorial-list");
+
+			// Iterate over each person object in the JSON data
+			$.each(data, function(index, repo) {
+
+				var list = $("<li></li>"); // Create a new list item
+				
+				// Documentation
+				var $docs = $("<center></center>").html('<p><a href="' + repo.homepage +'" target="_blank" rel="noopener"><figure markdown=""><img alt="Tutorial Thumbnail" src="' + repo.url + '/docs/assets/img/thumbnail.jpg"></figure></p><p><strong>' + repo.name.replace(/_/g, ' ') + 'Hookup Guide</strong></a></p></center>');
+				list.append($docs);         
+
+				// Repo
+				var $repo = $("<details class="github"></details>").html('<summary>' + repo.name.replace(/_/g, ' ') + '</summary><p><strong><a href="' + repo.url+ '" target="_blank" rel="noopener">repo.name</a></strong></p><hr><p><em>' + text(repo.description)+ '</em></p>');
+				list.append($repo);
+
+				unorderedList.append(list); // Add the item to the list
+			});
+		});
+	});
+</script>
+-->
 

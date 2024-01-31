@@ -28,20 +28,20 @@ jobs:
       # Run our gh command to find repos - only finds public repos with the given tag
       - name: gh command
         run: |
-          gh search repos topic:sparkfun-tutorial --owner sparkfun --visibility public --sort updated --order desc --limit 1000 --json name,url,homepage,description > gsg.json
+          gh search repos topic:sparkfun-tutorial --owner sparkfun --visibility public --sort updated --order desc --limit 1000 --json name,url,homepage,description > ./docs/gsg.json
 
       - name: Check for updates
         id: has_updates
         run: |
           git config --global user.name 'SparkFun Automated Action'
           git config --global user.email 'your-username@users.noreply.github.com'
-          git diff --exit-code gsg.json
+          git diff --exit-code ./docs/gsg.json
         continue-on-error: true
 
       - name: Check-in gsg updates
         if: steps.has_updates.outcome != 'success'
         run: |
-          git add gsg.json
+          git add ./docs/gsg.json
           git commit -m "daily update"
           git push
 

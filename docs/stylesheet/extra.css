@@ -1,0 +1,172 @@
+/* ================================================================================== */
+/* General Customizations                                                             */
+/* ================================================================================== */
+
+/* Sets page to use screens full width (can also use initial; instead of 100%) */
+.md-grid {
+  max-width: 100%;
+}
+
+/* Center images in figure elements */
+.md-typeset figure {
+  text-align: -webkit-center;
+}
+
+
+/* ================================================================================== */
+/* Content Tabs                                                                       */
+/* ================================================================================== */
+
+/* Sets the background color of the labels and creates an outline */
+.md-typeset .tabbed-labels > label {
+  background-color: var(--md-code-bg-color--light);
+  border-top: .1rem solid var(--md-default-fg-color--lighter);
+  border-left: .1rem solid var(--md-default-fg-color--lighter);
+  border-right: .1rem solid var(--md-default-fg-color--lighter);
+  margin-left: .1rem;
+  margin-right: .1rem;
+}
+
+/* Sets background color of active label to accent, when mouse is hovered over item */
+.md-typeset .tabbed-labels > label > a:hover {
+  background-color: var(--md-accent-fg-color);
+}
+
+/* Sets the color of the background and outline on the active label */
+.md-typeset .tabbed-set>input:first-child:checked~.tabbed-labels>:first-child,
+.md-typeset .tabbed-set>input:nth-child(2):checked~.tabbed-labels>:nth-child(2),
+.md-typeset .tabbed-set>input:nth-child(3):checked~.tabbed-labels>:nth-child(3),
+.md-typeset .tabbed-set>input:nth-child(4):checked~.tabbed-labels>:nth-child(4),
+.md-typeset .tabbed-set>input:nth-child(5):checked~.tabbed-labels>:nth-child(5),
+.md-typeset .tabbed-set>input:nth-child(6):checked~.tabbed-labels>:nth-child(6),
+.md-typeset .tabbed-set>input:nth-child(7):checked~.tabbed-labels>:nth-child(7),
+.md-typeset .tabbed-set>input:nth-child(8):checked~.tabbed-labels>:nth-child(8),
+.md-typeset .tabbed-set>input:nth-child(9):checked~.tabbed-labels>:nth-child(9),
+.md-typeset .tabbed-set>input:nth-child(10):checked~.tabbed-labels>:nth-child(10),
+.md-typeset .tabbed-set>input:nth-child(11):checked~.tabbed-labels>:nth-child(11),
+.md-typeset .tabbed-set>input:nth-child(12):checked~.tabbed-labels>:nth-child(12),
+.md-typeset .tabbed-set>input:nth-child(13):checked~.tabbed-labels>:nth-child(13),
+.md-typeset .tabbed-set>input:nth-child(14):checked~.tabbed-labels>:nth-child(14),
+.md-typeset .tabbed-set>input:nth-child(15):checked~.tabbed-labels>:nth-child(15),
+.md-typeset .tabbed-set>input:nth-child(16):checked~.tabbed-labels>:nth-child(16),
+.md-typeset .tabbed-set>input:nth-child(17):checked~.tabbed-labels>:nth-child(17),
+.md-typeset .tabbed-set>input:nth-child(18):checked~.tabbed-labels>:nth-child(18),
+.md-typeset .tabbed-set>input:nth-child(19):checked~.tabbed-labels>:nth-child(19),
+.md-typeset .tabbed-set>input:nth-child(20):checked~.tabbed-labels>:nth-child(20) {
+  background-color: #0000;
+  border-top: .1rem solid var(--md-default-fg-color);
+  border-left: .1rem solid var(--md-default-fg-color);
+  border-right: .1rem solid var(--md-default-fg-color);
+}
+
+
+
+/* ================================================================================== */
+/* Icons                                                                              */
+/* ================================================================================== */
+
+/* Heart Animation ================================================================== */
+@keyframes heart {
+  0%, 40%, 80%, 100% {
+    transform: scale(1);
+  }
+  20%, 60% {
+    transform: scale(1.15);
+  }
+}
+
+.heart {
+  animation: heart 1000ms infinite;
+}
+
+/* Autodesk Icon ==================================================================== */
+.md-typeset .twemoji.autodesk svg {
+  display: inline-flex;
+  height: 1rem;
+  width: 100%;
+}
+
+
+/* ================================================================================== */
+/* Custom Admonitions                                                                 */
+/* ================================================================================== */
+
+/* GitHub/Note =========================================================================== */
+.md-typeset .admonition,
+.md-typeset details {
+  border-color: grey;
+}
+
+.md-typeset .admonition-title,
+.md-typeset summary {
+	color: white;
+  background-image: linear-gradient(to bottom, #8241f9, #4e277b);
+}
+
+.md-typeset .admonition-title::before,
+.md-typeset summary::before {
+  background-color: white;
+  -webkit-mask-image: var(--md-admonition-icon--note);
+          mask-image: var(--md-admonition-icon--note);
+}
+
+
+/* ================================================================================== */
+/* Grid Cards                                                                     */
+/* ================================================================================== */
+
+/* Sets images size in grid cards */
+.md-typeset .grid ul figure img {
+  width: 100%;
+  max-width: 200px;
+}
+
+/* Add compatibility for mobile devices */
+/* ================================================================================== */
+/* ================================================================================== */
+
+/* Double ToC */
+/* ================================================================================== */
+@media (max-width: 1220px) {
+  .video_cards iframe {
+    width: 16vw;
+    height: 9vw;
+    min-width: 200px;
+    min-height: 112.5px;
+  }
+}
+
+@media (min-width: 1220px) {
+  .video iframe {
+    width: 50vw;
+    height: 28.125vw;
+  }
+}
+
+@media (min-width:1600px) {
+  .video iframe {
+    width: 60vw;
+    height: 33.75vw;
+  }
+}
+
+/* Single ToC */
+/* ================================================================================== */
+@media (max-width: 960px) {
+  .video_cards iframe {
+    width: 20vw;
+    height: 11.25vw;
+    min-width: 200px;
+    min-height: 112.5px;
+  }
+}
+
+/* No ToC */
+/* ================================================================================== */
+
+@media (max-width: 696px) {
+  .video_cards iframe {
+    width: 60vw;
+    height: 33.75vw;
+  }
+}
