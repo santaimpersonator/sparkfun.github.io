@@ -97,9 +97,9 @@ plugins:
   - typeset
 
   # Redirects page navigation
-  - redirects:
-      redirect_maps:
-        'index.md': 'introduction.md'
+  # - redirects:
+  #     redirect_maps:
+  #       'index.md': 'introduction.md'
 
   # # Add revision date
   # - git-revision-date-localized:
